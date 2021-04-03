@@ -1,11 +1,5 @@
 version: "3"
 
-networks:
-  frontend:
-    ipam:
-      config:
-        - subnet: 180.20.0.0/24
-
 services:
   db:
     container_name: db
@@ -13,29 +7,13 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: postgres
-    expose:
-      - "5432"
-    ports:
-      - "5432:5432"
-    networks:
-      frontend:
-        ipv4_address: 180.20.0.5
+    hostname: psql
+    #network_mode: host #Set the host's network
     
   app:
     container_name: app
     restart: always
-    image: "pumps:v0.0.4"
-    expose:
-      - "8080"
+    image: "pumps:v0.0.1"
     ports:
       - "8080:8080"
-    networks:
-      frontend:
-        ipv4_address: 180.20.0.6
-    #depends_on: 
-    #  - db 
-        
-#networks:
-#  host:
-#    external:
-#      name: host
+    #network_mode: host #Set the host's network

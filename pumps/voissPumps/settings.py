@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'pumpsTest',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': '180.20.0.5',
+        'HOST': 'psql',
         'PORT': '5432',
     },
 }
