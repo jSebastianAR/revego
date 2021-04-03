@@ -1,0 +1,5 @@
+[smtp]
+host = smtp.gmail.com
+port = 587
+from =  luisalberto85@gmail.com
+password = gmVoissLara.
