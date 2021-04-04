@@ -18,10 +18,6 @@ services:
     image: "pumps:v0.0.1"
     ports:
       - "8080:8080"
-    environment: 
-      DJANGO_SUPERUSER_PASSWORD: root
-      DJANGO_SUPERUSER_EMAIL: jsebastian_ar@outlook.com
-      DJANGO_SUPERUSER_USERNAME: root
     depends_on:
       db:
         condition: service_started
