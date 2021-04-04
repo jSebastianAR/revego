@@ -8,12 +8,26 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
     hostname: psql
+    volumes:
+      - pumps:/var/lib/postgresql/data/
     #network_mode: host #Set the host's network
     
   app:
     container_name: app
     restart: always
-    image: "pumps:v0.0.1"
+    image: "pumps:v0.0.2"
     ports:
       - "8080:8080"
+    environment: 
+      DJANGO_SUPERUSER_PASSWORD: root
+      DJANGO_SUPERUSER_EMAIL: jsebastian_ar@outlook.com
+      DJANGO_SUPERUSER_USERNAME: root
+    depends_on:
+      # notice: these lines don't start with "-"
+      db:
+        condition: service_started
     #network_mode: host #Set the host's network
+
+volumes:
+  pumps:
+    external: true
