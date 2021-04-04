@@ -15,7 +15,7 @@ services:
   app:
     container_name: app
     restart: always
-    image: "pumps:v0.0.2"
+    image: "pumps:v0.0.1"
     ports:
       - "8080:8080"
     environment: 
@@ -23,11 +23,14 @@ services:
       DJANGO_SUPERUSER_EMAIL: jsebastian_ar@outlook.com
       DJANGO_SUPERUSER_USERNAME: root
     depends_on:
-      # notice: these lines don't start with "-"
       db:
         condition: service_started
     #network_mode: host #Set the host's network
 
 volumes:
   pumps:
-    external: true
+
+# Only if you already create the volume with: $docker volume create pumps
+#volumes:
+#  pumps:
+#    external: true

@@ -4,8 +4,8 @@ WORKDIR /app/
 COPY ./pumps/ /app/pumps/
 COPY requeriments.txt /app/
 RUN pip install --no-cache-dir -r requeriments.txt
-COPY entrypoint.sh /app/
-RUN chmod +x entrypoint.sh
+COPY docker-entrypoint.sh /app/
+RUN chmod +x docker-entrypoint.sh
 
 #CMD [ "python", "pumps/manage.py", "runserver", "0.0.0.0:8080"]
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT [ "./docker-entrypoint.sh" ]
